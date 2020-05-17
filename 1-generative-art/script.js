@@ -1,7 +1,7 @@
 // console.log('hello world');
 
 // ############################################################################
-// ############################ EXERCISE 1 ####################################
+// ############################ EXERCISE 1&3 ##################################
 // ############################################################################
 
 const canvas = document.getElementById('canvas');
@@ -17,30 +17,43 @@ function randomInteger(min,max) {
 }
 
 function generateArt() {
+
+  canvas.style.backgroundColor = `${colors[randomInteger(0,4)]}`;
+
   //loop 500 times
   for(let i = 0; i < 500;i++) {
 
     //create a div element
     const element = document.createElement('div');
 
-    //assign a random color from the selection
+    //each element must be absolute, so it remains on the canvas
     element.style.position = 'absolute';
-    element.style.backgroundColor = `${colors[randomInteger(0,4)]}`
+
+    //Random color
+    //element.style.backgroundColor = `${colors[randomInteger(0,4)]}`
     //element.style.backgroundColor = `${colors2[randomInteger(0,4)]}`
 
-    element.style.height = `${randomInteger(10,150)}px`;
-    element.style.width = `${randomInteger(10,150)}px`;
+    //Random gradient
+    element.style.background = 
+      `linear-gradient(to right,${colors[randomInteger(0,4)]},${colors[randomInteger(0,4)]})`;
+    
+
+    //set the element's size and position
+    element.style.height = `${randomInteger(50,150)}px`;
+    element.style.width = `${randomInteger(50,150)}px`;
     element.style.top = `${randomInteger(1,99)}%`;
     element.style.left = `${randomInteger(1,99)}%`;
     element.style.zIndex = `${randomInteger(1,100)}`;
+
+    //set the element's orientation and shape
     element.style.transform = `rotate(${randomInteger(0,360)}deg)`;
+    element.style.opacity = `${randomInteger(80,100)}%`;
+    element.style.boxShadow = `0 0 3px 2px rgb(0,0,0,0.2)`;
+    element.style.borderRadius = `${randomInteger(1,100)}%`;
 
-    
 
-
+    //add div element to the canvas
     canvas.appendChild(element);
-
-    //assign a color hue to each element
     
   }
 }
@@ -57,4 +70,64 @@ function cleanUp() {
 }
 
 button.addEventListener('click',cleanUp);
+cleanUp();
 // document.body.addEventListener('click', cleanUp);
+
+
+// ############################################################################
+// ############################ EXERCISE 4 ####################################
+// ############################################################################
+
+
+function generateArtBySettings() {
+
+  canvas.innerHTML = '';
+
+  let itemWidth = document.getElementById('itemWidth').value;
+  let itemHeight = document.getElementById('itemHeight').value;  
+
+  console.log(itemWidth,itemHeight);
+
+  canvas.style.backgroundColor = `${colors[randomInteger(0,4)]}`;
+
+  //loop 500 times
+  for(let i = 0; i < 500;i++) {
+
+    //create a div element
+    const element = document.createElement('div');
+
+    //each element must be absolute, so it remains on the canvas
+    element.style.position = 'absolute';
+
+    //Random color
+    //element.style.backgroundColor = `${colors[randomInteger(0,4)]}`
+    //element.style.backgroundColor = `${colors2[randomInteger(0,4)]}`
+
+    //Random gradient
+    element.style.background = 
+      `linear-gradient(to right,${colors[randomInteger(0,4)]},${colors[randomInteger(0,4)]})`;
+    
+
+    //set the element's size and position
+    element.style.height = `${itemHeight}px`;
+    element.style.width = `${itemWidth}px`;
+    element.style.top = `${randomInteger(1,99)}%`;
+    element.style.left = `${randomInteger(1,99)}%`;
+    element.style.zIndex = `${randomInteger(1,100)}`;
+
+    //set the element's orientation and shape
+    element.style.transform = `rotate(${randomInteger(0,360)}deg)`;
+    element.style.opacity = `${randomInteger(80,100)}%`;
+    element.style.boxShadow = `0 0 3px 2px rgb(0,0,0,0.2)`;
+    element.style.borderRadius = `${randomInteger(1,100)}%`;
+
+    //add div element to the canvas
+    canvas.appendChild(element);
+
+
+  }
+}
+
+document.getElementById('itemWidth').addEventListener('change', generateArtBySettings);
+document.getElementById('itemHeight').addEventListener('change', generateArtBySettings);
+

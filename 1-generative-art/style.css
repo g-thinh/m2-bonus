@@ -11,12 +11,13 @@ html {
 }
 
 .title {
+  background: lightblue;
   display: flex;
   align-items: center;
   justify-content: space-around;
   z-index: 1000;
   /* margin-bottom: 50px; */
-  border-bottom: 10px solid goldenrod;
+  border-bottom: 10px solid black;
 }
 
 .title-section {
@@ -25,12 +26,23 @@ html {
   align-items: center;
 }
 
-.title-section > button {
-  height: 40px;
-  width: 100px;
-  border-radius: 10px;
+.title-section > p {
+  font-size: 1.5rem;
+  margin: 0;
 }
 
+.title-section > button {
+  height: 50px;
+  width: 120px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin: 10px 10px;
+}
+
+.title-section > button:hover {
+  background: dodgerblue;
+  color: white;
+}
 
 /* .title > h1, h3 {
   margin: 0;
@@ -42,4 +54,37 @@ html {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  mix-blend-mode: soft-light;
+}
+
+#canvas > div {
+  mix-blend-mode: hard-light;
+  mix-blend-mode: overlay;
+}
+
+.control-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 10px solid black;
+  background: lightblue;
+}
+
+.control-settings {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-settings > div {
+  display:flex;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+}
+
+label {
+  margin-left: 10px;
+  font-size: 1.5rem;
 }

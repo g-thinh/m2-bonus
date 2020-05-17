@@ -17,13 +17,27 @@
     </div>
     <div class="title-section">
       <p>Press the button to reset the art</p>
-      <button id="reset-btn">Button</button>
+      <button id="reset-btn">Generate</button>
     </div>
 
   </div>
-  <div id="canvas">
-
+  <div class="control-container">
+    <h1>Settings</h1>
+    <div class="control-settings">
+      <div>
+        <input type="range" name="itemWidth" id="itemWidth" min=10 max=200>
+        <label for="itemWidth">Width</label>
+      </div>
+      <div>
+        <input type="range" name="itemHeight" id="itemHeight" min=10 max=200>
+        <label for="itemHeight">Height</label>
+      </div>
+    </div>
   </div>
+  <div id="canvas"></div>
+
+
+
 
   <script src="script.js"></script>
 </body>
