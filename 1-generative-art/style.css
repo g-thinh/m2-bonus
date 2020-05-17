@@ -63,7 +63,7 @@ html {
 }
 
 .control-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-around;
   border-bottom: 10px solid black;
